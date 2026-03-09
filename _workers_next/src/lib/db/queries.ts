@@ -1046,6 +1046,8 @@ export type ProductVariantRow = {
     locked: number;
     isShared: boolean | null;
     purchaseLimit: number | null;
+    isHot: boolean | null;
+    purchaseWarning: string | null;
 };
 
 export async function getProductVariants(
@@ -1065,6 +1067,8 @@ export async function getProductVariants(
             locked: sql<number>`COALESCE(${products.lockedCount}, 0)`,
             isShared: products.isShared,
             purchaseLimit: products.purchaseLimit,
+            isHot: products.isHot,
+            purchaseWarning: products.purchaseWarning,
         })
             .from(products)
             .where(and(

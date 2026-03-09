@@ -104,8 +104,8 @@ export function BuyContent({
                     image: v.image,
                     category: product.category,
                     purchaseLimit: v.purchaseLimit,
-                    purchaseWarning: product.purchaseWarning,
-                    isHot: product.isHot,
+                    purchaseWarning: v.purchaseWarning ?? null,
+                    isHot: v.isHot ?? false,
                 } satisfies Product
             }
         }
